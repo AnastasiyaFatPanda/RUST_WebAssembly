@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust WebAssembly Demo</title>
+</head>
+
+<body>
+    <h1>Rust + WebAssembly</h1>
+    <button id="mult">5 * 3</button>
+    <button id="summ">5 + 3</button>
+    <p id="result"></p>
+
+    <script type="module">
+        import init, { multiply, sum } from "./pkg/wasm_demo.js";
+
+        async function run() {
+            await init();
+            let result = multiply(5, 3);
+            console.log("5 * 3 =", result);
+            document.getElementById("mult").addEventListener("click", () => {
+                let result = multiply(5, 3);
+                console.log(result);
+                document.getElementById("result").innerText = `Результат mult: ${result}`;
+            });
+
+            document.getElementById("summ").addEventListener("click", () => {
+                let result = sum(5, 3);
+                console.log(result);
+                document.getElementById("result").innerText = `Результат summ: ${result}`;
+            });
+        }
+
+        run();
+    </script>
+</body>
+
+</html>

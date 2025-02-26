@@ -1,0 +1,12 @@
+[package]
+name = "wasm_demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wasm-bindgen = "0.2"
+
+[lib]
+# cdylib говорит Rust, что он должен скомпилировать библиотеку в WebAssembly.
+# rlib нужен для поддержки стандартных Rust-библиотек.
+crate-type = ["cdylib", "rlib"]
