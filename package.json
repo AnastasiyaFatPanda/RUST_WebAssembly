@@ -1,0 +1,14 @@
+{
+  "name": "rust_webassembly",
+  "version": "1.0.0",
+  "description": "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ./wasm_demo && wasm-pack build --target web && npx http-server . -c-1 --cors"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
